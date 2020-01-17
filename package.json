@@ -20,5 +20,8 @@
     "express": "^4.17.1",
     "express-csp-header": "^2.3.2",
     "mongoose": "^5.8.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
   }
 }
