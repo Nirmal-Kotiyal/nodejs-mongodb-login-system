@@ -38,7 +38,7 @@ export default class SignUp extends Component{
             email:this.state.email,
             password:this.state.password
         }
-        const response = await Axios.post('/signup',userdata);
+        const response = await Axios.post('/api/signup',userdata);
         console.log(response);
         const id=response.data.id;
         console.log(id);

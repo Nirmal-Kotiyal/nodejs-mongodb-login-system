@@ -42,7 +42,7 @@ html, body {
       color: #fff !important;
       text-transform: uppercase;
       text-decoration: none;
-      background: #2979FF;
+      background: #0043b3;
       padding: 20px;
       border-radius: 5px;
       display: inline-block;
@@ -50,6 +50,10 @@ html, body {
       width: 100%;
   }
   
+  .button:hover{
+    background-color:grey;
+  }
+
   .mt-20 {
     margin-top: 20px;
   }

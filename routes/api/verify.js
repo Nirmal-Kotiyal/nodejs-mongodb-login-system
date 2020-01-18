@@ -1,16 +1,17 @@
 const express =require('express');
 const router = express.Router();
-const usersess = require('../models/UserSession')
+const usersess = require('../../models/UserSession')
 
-router.delete('/',(req,res)=>{
+router.get('/',(req,res)=>{
     const token=req.query.token;
     
-    usersess.findOneAndDelete({UserId:token},(err,result)=>{
+    usersess.findOne({_id:token},(err,result)=>{
+    
         if(result===undefined){
         return res.send("Not valid session");
     }
     else{    
-    return res.send({logout:true});
+    return res.send("Good");
     }
 })
 

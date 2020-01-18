@@ -30,7 +30,7 @@ onclicksignin=async()=>{
         email:this.state.email,
         password:this.state.password
     }
-const response=await Axios.post('/signin',userdata);
+const response=await Axios.post('/api/signin',userdata);
 const token = response.data.token;
 console.log(response)
 console.log(token);

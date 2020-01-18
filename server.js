@@ -3,10 +3,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path')
 const db_config=require('./config/config');
-const SignUp = require('./routes/SignUp');
-const SignIn = require('./routes/SignIn');
-const verify = require('./routes/verify')
-const Logout = require('./routes/Logout')
+const SignUp = require('./routes/api/SignUp');
+const SignIn = require('./routes/api/SignIn');
+const verify = require('./routes/api/verify')
+const Logout = require('./routes/api/Logout')
 const csp = require('express-csp-header');
 
 mongoose.connect(db_config,{ useNewUrlParser: true,useUnifiedTopology: true,useCreateIndex:true})
@@ -22,10 +22,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-app.use('/signup',SignUp);
-app.use('/signin',SignIn);
-app.use('/verify',verify);
-app.use('/logout',Logout);
+app.use('/api/signup',SignUp);
+app.use('/api/signin',SignIn);
+app.use('/api/verify',verify);
+app.use('/api/logout',Logout);
 
 
 if(process.env.NODE_ENV === 'production') {  app.use(express.static('client/build'));
@@ -35,8 +35,6 @@ app.listen(PORT,(err,res)=>{
     if(err) console.error(err);
     console.log(`server is started at port${PORT} `);
 })
-
-app.use(express.static(path.join(path.dirname(__filename).split(path.sep).pop(),'client/build')));
 
 app.use((req,res,next)=>{
     res.header('Access-Control-Allow-Origin','*');

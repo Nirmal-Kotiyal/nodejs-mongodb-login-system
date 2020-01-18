@@ -6,7 +6,7 @@ export default class Content extends Component{
     onclicklogout=async()=>{
         const user=qs.parse(this.props.location.search);
         console.log(user);
-        const result=await Axios.delete(`/logout?token=${user.token}`);
+        const result=await Axios.delete(`/api/logout?token=${user.token}`);
         if(result.data.logout===true){
             window.alert("Logout Successfull");
             window.location='/';
