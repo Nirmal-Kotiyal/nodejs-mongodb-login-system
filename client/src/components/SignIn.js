@@ -30,7 +30,7 @@ onclicksignin=async()=>{
         email:this.state.email,
         password:this.state.password
     }
-const response=await Axios.post('http://localhost:5000/signin',userdata);
+const response=await Axios.post('/signin',userdata);
 const token = response.data.token;
 console.log(response)
 console.log(token);
@@ -59,7 +59,7 @@ onclicksubmit=()=>{
                   <input placeholder="Password" className="joinInput mt-20" type="password" onChange={this.onchangepassword} />
                 </div>
                   <button className={'button mt-20'} type="submit" onClick={this.onclicksignin}>Sign In</button>
-                <h3 style={{marginTop:"20px",marginBottom:"5px"}}>Don't have an account</h3>
+                <h3 style={{marginTop:"20px",marginBottom:"5px",color:"white"}}>Don't have an account</h3>
                 <button className={'button mt-20'} type="submit" onClick={this.onclicksubmit}>Sign Up</button>
               </div>
             </div>
